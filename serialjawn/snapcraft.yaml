@@ -1,0 +1,33 @@
+name: serialjawn
+version: '1.0'
+summary: A package for simple uart communication
+description: |
+  Send and receive messages over uart
+
+grade: devel
+confinement: strict
+base: core20
+
+architectures:
+  - build-on: armhf
+    run-on: armhf
+
+apps:
+  serialjawn:
+    command: bin/serialjawn
+    plugs:
+      - serial-port
+
+parts:
+  serialjawn:
+    plugin: python
+    source: .
+    build-packages:
+      - python3-wheel
+      - python3-dev
+    build-environment:
+      - PYTHONPATH: "$SNAPCRAFT_PART_INSTALL/usr/lib/python3/dist-packages"
+    python-packages:
+      - pyserial
+    stage-packages:
+      - python3-wheel

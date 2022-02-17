@@ -1,0 +1,34 @@
+name: i2cjawn
+version: '1.0'
+summary: A package for blinking an LED via an i2c follower
+description: |
+  Repeatedly blink an LED on an i2c follower such as an
+  Arduino.
+
+grade: devel
+confinement: strict
+base: core20
+
+architectures:
+  - build-on: armhf
+    run-on: armhf
+
+apps:
+  i2cjawn:
+    command: bin/i2cjawn
+    plugs:
+      - i2c
+
+parts:
+  i2cjawn:
+    plugin: python
+    source: .
+    build-packages:
+      - python3-wheel
+      - python3-dev
+    build-environment:
+      - PYTHONPATH: "$SNAPCRAFT_PART_INSTALL/usr/lib/python3/dist-packages"
+    python-packages:
+      - smbus
+    stage-packages:
+      - python3-wheel

@@ -1,5 +1,5 @@
 name: gpiojawn
-version: '1.0'
+version: '1.1'
 summary: A package for blinking an LED
 description: |
   Repeatedly blink an LED until Ctrl+C is detected

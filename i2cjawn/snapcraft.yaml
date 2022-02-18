@@ -5,13 +5,13 @@ description: |
   Repeatedly blink an LED on an i2c follower such as an
   Arduino.
 
-grade: devel
+grade: stable
 confinement: strict
 base: core20
 
 architectures:
-  - build-on: armhf
-    run-on: armhf
+  - build-on: [armhf, arm64]
+    run-on: [armhf, arm64]
 
 apps:
   i2cjawn:

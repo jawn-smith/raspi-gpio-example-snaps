@@ -4,13 +4,13 @@ summary: A package for blinking an LED
 description: |
   Repeatedly blink an LED until Ctrl+C is detected
 
-grade: devel
+grade: stable
 confinement: strict
 base: core20
 
 architectures:
-  - build-on: armhf
-    run-on: armhf
+  - build-on: [armhf, arm64]
+    run-on: [armhf, arm64]
 
 apps:
   gpiojawn:

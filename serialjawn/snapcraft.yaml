@@ -4,13 +4,13 @@ summary: A package for simple uart communication
 description: |
   Send and receive messages over uart
 
-grade: devel
+grade: stable
 confinement: strict
 base: core20
 
 architectures:
-  - build-on: armhf
-    run-on: armhf
+  - build-on: [armhf, arm64]
+    run-on: [armhf, arm64]
 
 apps:
   serialjawn:

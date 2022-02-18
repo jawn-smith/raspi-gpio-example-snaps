@@ -16,8 +16,6 @@ apps:
   gpiojawn:
     command: bin/gpiojawn
     plugs:
-      - gpio
-      - gpio-memory-control
       - gpio-control
 
 parts:

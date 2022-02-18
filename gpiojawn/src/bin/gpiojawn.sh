@@ -1,13 +1,8 @@
 #! /bin/sh
 
-#
-# echo ${GPIO} >/sys/class/gpio/export
-# echo out >/sys/class/gpio/gpio${GPIO}/direction
-#
-
 set -e
 
-GPIO=18
+GPIO=23
 
 while [ ! -f /sys/class/gpio/gpio${GPIO}/value ]
 do

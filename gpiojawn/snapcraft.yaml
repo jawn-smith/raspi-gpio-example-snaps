@@ -1,5 +1,5 @@
 name: gpiojawn
-version: '1.1'
+version: '2.0'
 summary: A package for blinking an LED
 description: |
   Repeatedly blink an LED until Ctrl+C is detected
@@ -12,22 +12,13 @@ architectures:
   - build-on: [armhf, arm64]
     run-on: [armhf, arm64]
 
-apps:
-  gpiojawn:
-    command: bin/gpiojawn
-    plugs:
-      - gpio-control
-
 parts:
   gpiojawn:
-    plugin: python
-    source: .
-    build-packages:
-      - python3-wheel
-      - python3-dev
-    build-environment:
-      - PYTHONPATH: "$SNAPCRAFT_PART_INSTALL/usr/lib/python3/dist-packages"
-    python-packages:
-      - RPi.GPIO
-    stage-packages:
-      - python3-wheel
+    plugin: dump
+    source: src/
+
+apps:
+  gpiojawn:
+    command: bin/gpiojawn.sh
+    plugs:
+      - gpio

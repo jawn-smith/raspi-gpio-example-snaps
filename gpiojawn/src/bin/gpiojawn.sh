@@ -4,10 +4,12 @@ set -e
 
 GPIO=23
 
-while [ ! -f /sys/class/gpio/gpio${GPIO}/value ]
-do
-	sleep 1
-done
+# trap ctrl-c and turn the light off
+trap lights_out INT
+
+function lights_out() {
+	echo "0" >/sys/class/gpio/gpio${GPIO}/value
+}
 
 if [ "(cat /sys/class/gpio/gpio${GPIO}/direction)" != "out" ]
 then
